@@ -2,21 +2,42 @@
 #define WIN_H
 
 #include <QWidget>
+#include <QtGui>
+#include <QBoxLayout>
+#include <QFrame>
+#include <QLabel>
+#include <QLineEdit>
+#include <QMessageBox>
+#include <QPushButton>
+#include <QValidator>
 
-namespace Ui {
-class Win;
-}
 
 class Win : public QWidget
 {
     Q_OBJECT
-
+protected:
+    QTextCodec *codec;
+    QFrame *frame; // рамка
+    QLabel *inputLabel; // метка ввода
+    QLineEdit *inputEdit; // строчный редактор ввода
+    QLabel *outputLabel; // метка вывода
+    QLineEdit *outputEdit; // строчный редактор вывода
+    QPushButton *nextButton; // кнопка Следующее
+    QPushButton *exitButton; // кнопка Выход
 public:
-    explicit Win(QWidget *parent = 0);
-    ~Win();
-
-private:
-    Ui::Win *ui;
+    Win(QWidget *parent = 0); // конструктор
+public slots:
+    void begin(); // метод начальной настройки интерфейса
+    void calc(); // метод реализации вычислений
 };
 
+class StrValidator:public QValidator // класс компонента проверки ввода
+{
+public:
+    StrValidator(QObject *parent):QValidator(parent){}
+    virtual State validate(QString &str,int &pos)const
+    {
+        return Acceptable; // метод всегда принимает вводимую строку
+    }
+};
 #endif // WIN_H
