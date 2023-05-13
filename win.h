@@ -12,11 +12,11 @@
 #include <QValidator>
 
 
-class Win : public QWidget
+class Win : public QWidget // класс окна
 {
     Q_OBJECT
 protected:
-    QTextCodec *codec;
+    QTextCodec *codec;//для русификации интерфейса
     QFrame *frame; // рамка
     QLabel *inputLabel; // метка ввода
     QLineEdit *inputEdit; // строчный редактор ввода
