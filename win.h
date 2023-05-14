@@ -9,11 +9,11 @@
 class Win : public QWidget
 {
 protected:
-    QTextCodec *codec;
+    QTextCodec *codec;//для русификации интерфейса
     Area * area; // область отображения рисунка
-    QPushButton * btn;
+    QPushButton * btn;//кнопка
 public:
-    Win();
+    Win();//конструктор
 };
 
 #endif // WIN_H

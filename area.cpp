@@ -3,10 +3,10 @@
 
 Area::Area(QWidget *parent):QWidget(parent)
 {
-    setFixedSize(QSize(300,200));
-    myline=new MyLine(80,100,50);
-    myrect=new MyRect(220,100,50);
-    alpha=0;
+    setFixedSize(QSize(300,200));//устонавливается размер виджета
+    myline=new MyLine(80,100,50);//создается объект класса MyLine
+    myrect=new MyRect(220,100,50);//создается объект класса MyRect
+    alpha=0;//угол поворота равен нулю
 }
 
 void Area::showEvent(QShowEvent *)
@@ -16,10 +16,10 @@ void Area::showEvent(QShowEvent *)
 
 void Area::paintEvent(QPaintEvent *)
 {
-    QPainter painter(this);
-    painter.setPen(Qt::red);
-    myline->move(alpha,&painter);
-    myrect->move(alpha*(-0.5),&painter);
+    QPainter painter(this);//создается объект класса QPainter
+    painter.setPen(Qt::red);//задается цвет для рисования
+    myline->move(alpha,&painter);//поворачиваем линию
+    myrect->move(alpha*(-0.5),&painter);//поворачиваем квадрат
 }
 
 void Area::timerEvent(QTimerEvent *event)
@@ -38,7 +38,7 @@ void Area::hideEvent(QHideEvent *)
     killTimer(myTimer); // уничтожить таймер
 }
 
-Area::~Area()
+Area::~Area()//деструкор
 {
     delete myline;
     delete myrect;
