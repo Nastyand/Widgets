@@ -1,14 +1,14 @@
 #include "win.h"
-#include "ui_win.h"
+#include <QVBoxLayout>
 
-Win::Win(QWidget *parent) :
-    QWidget(parent),
-    ui(new Ui::Win)
+Win::Win()
 {
-    ui->setupUi(this);
-}
-
-Win::~Win()
-{
-    delete ui;
-}
+    codec = QTextCodec::codecForName("utf-8");
+    this->setWindowTitle(codec->toUnicode("Обработка событий"));
+    area = new Area( this );
+    btn = new QPushButton(codec->toUnicode("Завершить"),this );
+    QVBoxLayout *layout = new QVBoxLayout(this);
+    layout->addWidget(area);
+    layout->addWidget(btn);
+    connect(btn, SIGNAL(clicked(bool)),this,SLOT(close()));
+};

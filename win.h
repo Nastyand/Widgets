@@ -2,21 +2,18 @@
 #define WIN_H
 
 #include <QWidget>
-
-namespace Ui {
-class Win;
-}
+#include <QPushButton>
+#include <QtGui>
+#include "area.h"
 
 class Win : public QWidget
 {
-    Q_OBJECT
-
+protected:
+    QTextCodec *codec;
+    Area * area; // область отображения рисунка
+    QPushButton * btn;
 public:
-    explicit Win(QWidget *parent = 0);
-    ~Win();
-
-private:
-    Ui::Win *ui;
+    Win();
 };
 
 #endif // WIN_H
