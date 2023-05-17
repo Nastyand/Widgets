@@ -3,7 +3,7 @@
 
 void Figura::move(float Alpha,QPainter *Painter)
 {
-    dx=halflen*cos(Alpha);//пересчитываем координаты
+    dx=halflen*cos(Alpha);//пересчитываем сдвиги
     dy=halflen*sin(Alpha);
     draw(Painter);//рисуем фигуру
 }

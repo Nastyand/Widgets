@@ -5,11 +5,12 @@
 class Figura
 {
 protected:
-    int x,y,halflen,dx,dy,r;
+    int x,y,halflen,dx,dy;
     virtual void draw(QPainter *Painter)=0;//функция рисования фигуры
 public:
     Figura(int X,int Y,int Halflen): x(X),y(Y),halflen(Halflen){}//конструктор
     void move(float Alpha,QPainter *Painter);//функция поворота
+    virtual ~Figura(){}
 };
 
 class MyLine:public Figura//класс, рисующий линию

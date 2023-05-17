@@ -18,8 +18,12 @@ void Area::paintEvent(QPaintEvent *)
 {
     QPainter painter(this);//создается объект класса QPainter
     painter.setPen(Qt::red);//задается цвет для рисования
-    myline->move(alpha,&painter);//поворачиваем линию
-    myrect->move(alpha*(-0.5),&painter);//поворачиваем квадрат
+    if(myline!=NULL && myrect!=NULL)
+    {
+        myline->move(alpha,&painter);//поворачиваем линию
+        myrect->move(alpha*(-0.5),&painter);//поворачиваем квадрат
+    }
+
 }
 
 void Area::timerEvent(QTimerEvent *event)
